@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @author cathlene
  */
 @Configuration
-@ComponentScan("org.ucll.demo.controller")
+@ComponentScan("restController")
 @EnableWebMvc  
 class ApplicationConfig {
      @Bean

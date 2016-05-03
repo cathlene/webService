@@ -10,11 +10,14 @@ import javax.servlet.ServletException;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import javax.servlet.ServletRegistration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
  *
  * @author cathlene
  */
+
 public class WebAppInitializer {
      public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
