@@ -5,28 +5,20 @@
  */
 package restConfiguration;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
+import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import javax.servlet.ServletRegistration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
-/**
- *
- * @author cathlene
- */
+public class WebAppInitializer implements WebApplicationInitializer {
 
-public class WebAppInitializer {
-     public void onStartup(ServletContext servletContext) throws ServletException {
+    public void onStartup(javax.servlet.ServletContext sc) throws javax.servlet.ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(ApplicationConfig.class);
-        ctx.setServletContext(servletContext);
-       
-        ServletRegistration.Dynamic dynamic = servletContext.addServlet("dispatcher", 
-               new DispatcherServlet(ctx));
+        ctx.setServletContext(sc);      
+        ServletRegistration.Dynamic dynamic = sc.addServlet("dispatcher", new DispatcherServlet(ctx));
         dynamic.addMapping("/");
         dynamic.setLoadOnStartup(1);
     }
+    
 }
