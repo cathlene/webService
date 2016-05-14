@@ -47,7 +47,7 @@ public class ActorRestController {
     }
     
     
-     @RequestMapping(value="/id", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+     @RequestMapping(value="/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Actor getActor(@PathVariable long id){
         return facade.getActor(id);
     }
