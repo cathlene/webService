@@ -5,12 +5,14 @@
  */
 package restController;
 
+import domain.Actor;
 import domain.Facade;
 import domain.Movie;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,6 +48,11 @@ public class MovieRestController {
     @RequestMapping(method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void removeMovie(@RequestBody Movie movie){
         facade.removeMovie(movie);
+    }
+    
+       @RequestMapping(value="/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Movie getMovie(@PathVariable long id){
+        return facade.getMovie(id);
     }
 
      @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
