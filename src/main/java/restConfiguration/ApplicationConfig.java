@@ -21,6 +21,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 class ApplicationConfig {
      @Bean(destroyMethod ="closeConnection")
      public Facade facade() {
-         return new Facade("sql");
+         return new Facade("stub");
      }
 }
