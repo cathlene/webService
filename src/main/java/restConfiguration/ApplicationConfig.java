@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan("restController")
 @EnableWebMvc  
 class ApplicationConfig {
-     @Bean
+     @Bean(destroyMethod ="closeConnection")
      public Facade facade() {
          return new Facade("sql");
      }
