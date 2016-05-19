@@ -38,9 +38,9 @@ public class ActorRestController {
         return facade.getActors();
     }
     
-    @RequestMapping(method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void removeActor(@RequestBody Actor actor){
-        facade.removeActor(actor);
+    @RequestMapping(value="/{id}",method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void removeActor(@PathVariable long id){
+        facade.removeActor(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
