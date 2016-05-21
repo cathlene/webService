@@ -36,6 +36,7 @@ public class MovieRestController {
     }
      @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Movie> getMovies(){
+        List<Movie> movies=facade.getMovies();
         return facade.getMovies();
     } 
     
@@ -45,9 +46,9 @@ public class MovieRestController {
     }
     
      
-    @RequestMapping(method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void removeMovie(@RequestBody Movie movie){
-        facade.removeMovie(movie);
+    @RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+    public void removeMovie(@PathVariable long id){
+        facade.removeMovie(id);
     }
     
        @RequestMapping(value="/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
