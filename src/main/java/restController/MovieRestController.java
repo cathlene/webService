@@ -39,13 +39,7 @@ public class MovieRestController {
         List<Movie> movies=facade.getMovies();
         return facade.getMovies();
     } 
-    
-     @RequestMapping(value = "/duration",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Movie> getMovieWithDurationLessOrEqual(@RequestParam ("Duur") Integer duur){
-        return  facade.getMoviesWithSpecificDuration(duur);
-    }
-    
-     
+
     @RequestMapping(value="/{id}",method = RequestMethod.DELETE)
     public void removeMovie(@PathVariable long id){
         facade.removeMovie(id);

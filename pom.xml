@@ -46,6 +46,7 @@
     </dependencies>
 
     <build>
+        
         <finalName>WebService</finalName>
         <plugins>
               <plugin>
